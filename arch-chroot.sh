@@ -8,6 +8,8 @@ timedatectl set-timezone Europe/Helsinki &&
 timedatectl set-ntp true &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 systemctl enable dhcpcd &&
+echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" > /etc/xdg/reflector/reflector.conf &&
+systemctl start reflector
 #pacman -S --noconfirm xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack xfce4 xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin pavucontrol feh mpv firefox gvfs xarchiver unzip git wget xfce4-screenshooter noto-fonts-cjk noto-fonts-emoji noto-fonts sddm &&
 #arch-chroot /mnt systemctl enable sddm
 clear &&

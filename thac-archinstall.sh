@@ -10,6 +10,9 @@ read -p "username: " uservar &&
 arch-chroot /mnt useradd -mg wheel $uservar &&
 arch-chroot /mnt passwd $uservar &&
 arch-chroot /mnt grub-install $diskvar &&
+mv arch-chroot.sh /mnt &&
+cd /mnt &&
 chmod +x arch-chroot.sh &&
 arch-chroot /mnt ./arch-chroot.sh &&
+rm arch-chroot.sh &&
 echo "Install Finished"

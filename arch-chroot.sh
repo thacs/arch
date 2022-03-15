@@ -7,9 +7,8 @@ echo "KEYMAP=fi" >> /etc/vconsole.conf &&
 timedatectl set-timezone Europe/Helsinki &&
 timedatectl set-ntp true &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
-pacman -S --noconfirm dhcpcd &&
 systemctl enable dhcpcd &&
-#pacman -S --noconfirm xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack xfce4 xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin pavucontrol feh mpv firefox gvfs xarchiver unzip git wget xfce4-screenshooter sddm &&
+#pacman -S --noconfirm xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack xfce4 xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin pavucontrol feh mpv firefox gvfs xarchiver unzip git wget xfce4-screenshooter noto-fonts-cjk noto-fonts-emoji noto-fonts sddm &&
 #arch-chroot /mnt systemctl enable sddm
 clear &&
 read -p "username: " uservar &&

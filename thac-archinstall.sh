@@ -11,5 +11,5 @@ arch-chroot /mnt useradd -mg wheel $uservar &&
 arch-chroot /mnt passwd $uservar &&
 arch-chroot /mnt grub-install $diskvar &&
 chmod +x arch-chroot.sh &&
-./arch-chroot.sh &&
+arch-chroot /mnt ./arch-chroot.sh &&
 echo "Install Finished"

@@ -2,18 +2,19 @@
 lsblk &&
 read -p "disk " diskvar &&
 cfdisk $diskvar &&
+clear &&
 lsblk &&
 read -p "root partition " fulldiskvar &&
 clear &&
 read -p "username: " uservar &&
 clear &&
-read -p -r -s "password: " passvar &&
+read -r -s -p "password: " passvar &&
 clear &&
-read -p -r -s "root password: " rootpassvar &&
+read -r -s -p "root password: " rootpassvar &&
 clear &&
 echo 'Please pick from the following'
 
-select install in gnome xfce plasma no yes
+select install in gnome xfce plasma none ssh
 do
         case $install in 
         gnome|xfce|plasma|none|ssh)   
@@ -23,7 +24,7 @@ do
                 echo "Invalid" 
                 ;;
         esac
-done
+done &&
 mkfs.ext4 -F $fulldiskvar &&
 mount $fulldiskvar /mnt &&
 pacstrap /mnt base base-devel linux-zen linux-firmware linux-headers vim grub &&

@@ -1,6 +1,6 @@
 #!/bin/bash
 read -p "disk " diskvar &&
-cfdisk $diskvar
+cfdisk $diskvar &&
 read -p "root partition " fulldiskvar &&
 mkfs.ext4 -F $fulldiskvar &&
 mount $fulldiskvar /mnt &&

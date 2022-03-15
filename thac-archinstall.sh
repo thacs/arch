@@ -9,7 +9,7 @@ read -p "root partition " fulldiskvar &&
 clear &&
 mkfs.ext4 -F $fulldiskvar &&
 mount $fulldiskvar /mnt &&
-pacstrap /mnt base base-devel linux-zen linux-firmware linux-headers vim grub dhcpcd &&
+pacstrap /mnt base base-devel linux-zen linux-firmware linux-headers vim grub dhcpcd reflector &&
 genfstab -U /mnt >> /mnt/etc/fstab &&
 arch-chroot /mnt grub-install $diskvar &&
 cp arch-chroot.sh /mnt &&

@@ -8,4 +8,10 @@ ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 pacman -S --noconfirm networkmanager xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack plasma plasma-wayland-session firefox sddm &&
 systemctl enable sddm &&
-systemctl enable NetworkManager
+systemctl enable NetworkManager &&
+clear &&
+read -p "username: " uservar &&
+useradd -mg wheel $uservar &&
+clear &&
+passwd $uservar &&
+clear

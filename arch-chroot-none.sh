@@ -7,4 +7,10 @@ echo "KEYMAP=fi" >> /etc/vconsole.conf &&
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 pacman -S --noconfirm dhcpcd &&
-systemctl enable dhcpcd
+systemctl enable dhcpcd &&
+clear &&
+read -p "username: " uservar &&
+useradd -mg wheel $uservar &&
+clear &&
+passwd $uservar &&
+clear

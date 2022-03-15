@@ -8,4 +8,10 @@ ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 pacman -S --noconfirm dhcpcd xorg-xinit xorg-server pipewire pipewire-pulse pipewire-alsa pipewire-jack xfce4 xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin pavucontrol feh mpv qbittorrent firefox gvfs xarchiver unzip git wget xfce4-screenshooter sddm &&
 systemctl enable sddm &&
-systemctl enable dhcpcd
+systemctl enable dhcpcd &&
+clear &&
+read -p "username: " uservar &&
+useradd -mg wheel $uservar &&
+clear &&
+passwd $uservar &&
+clear

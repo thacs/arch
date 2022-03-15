@@ -8,4 +8,10 @@ ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 pacman -S --noconfirm dhcpcd xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack gnome &&
 systemctl enable gdm &&
-systemctl enable NetworkManager
+systemctl enable NetworkManager &&
+clear &&
+read -p "username: " uservar &&
+useradd -mg wheel $uservar &&
+clear &&
+passwd $uservar &&
+clear

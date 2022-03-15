@@ -1,5 +1,6 @@
 #!/bin/bash
 read -p "/dev/nvme0n1 " diskvar &&
+cfdisk $diskvar
 read -p "/dev/nvme0n1p1 " fulldiskvar &&
 mkfs.ext4 $fulldiskvar &&
 mount $fulldiskvar /mnt &&

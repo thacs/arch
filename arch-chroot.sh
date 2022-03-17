@@ -9,7 +9,6 @@ grub-mkconfig -o /boot/grub/grub.cfg &&
 systemctl enable dhcpcd &&
 echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" > /etc/xdg/reflector/reflector.conf &&
 systemctl enable reflector &&
-sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
 clear &&
 read -p "username: " uservar &&
 useradd -mg wheel $uservar &&

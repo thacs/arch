@@ -6,6 +6,9 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf &&
 echo "KEYMAP=fi" >> /etc/vconsole.conf &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 systemctl enable dhcpcd &&
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
+echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" > /etc/xdg/reflector/reflector.conf &&
+systemctl enable reflector &&
 clear &&
 read -p "username: " uservar &&
 useradd -mg wheel $uservar &&

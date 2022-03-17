@@ -6,9 +6,12 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf &&
 echo "KEYMAP=fi" >> /etc/vconsole.conf &&
 grub-mkconfig -o /boot/grub/grub.cfg &&
 systemctl enable dhcpcd &&
+ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
 echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" > /etc/xdg/reflector/reflector.conf &&
 systemctl enable reflector &&
+pacman -Sy xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack xfce4 xfce4-goodies sddm feh mpv firefox gvfs xarchiver unzip git wget noto-fonts-cjk noto-fonts-emoji noto-fonts helvum qbittorrent audacity gnome-calculator gnome-keyring discord gimp obs-studio steam reflector p7zip &&
+systemctl enable sddm &&
 clear &&
 read -p "username: " uservar &&
 useradd -mg wheel $uservar &&

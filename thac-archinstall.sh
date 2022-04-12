@@ -19,6 +19,6 @@ cd /mnt &&
 chmod +x arch-chroot.sh &&
 arch-chroot /mnt ./arch-chroot.sh &&
 rm arch-chroot.sh &&
-sleep 2 &&
-umount /mnt &&
+cd -- &&
+clear &&
 echo "Install Finished"

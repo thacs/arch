@@ -8,7 +8,7 @@ grub-mkconfig -o /boot/grub/grub.cfg &&
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
 echo "arch" >> /etc/hostname &&
-pacman -Sy --noconfirm networkmanager xorg pipewire pipewire-pulse pipewire-alsa pipewire-jack xterm reflector
+pacman -Sy --noconfirm networkmanager xorg xterm reflector
 systemctl enable NetworkManager &&
 echo -e 'Section "InputClass"\nIdentifier "keyboard-all"\nDriver "evdev"\nMatchIsKeyboard "on"\nOption "XkbLayout" "fi"\nOption "XkbModel" "pc105"\nEndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf &&
 echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" >> /etc/xdg/reflector/reflector.conf &&

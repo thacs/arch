@@ -8,7 +8,7 @@ grub-mkconfig -o /boot/grub/grub.cfg &&
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
 echo "arch" >> /etc/hostname &&
-pacman -Sy --noconfirm networkmanager xorg xterm reflector pipewire wireblumber pipewire-pulse pipewire-alsa pipewire-jack pavucontrol xfce4 xfce4-goodies lightdm lightdm-gtk-greeter &&
+pacman -Sy --noconfirm networkmanager xorg reflector pipewire wireblumber pipewire-pulse pipewire-alsa pipewire-jack pavucontrol xfce4 xfce4-goodies lightdm lightdm-gtk-greeter &&
 systemctl enable lightdm &&
 systemctl enable NetworkManager &&
 echo -e 'Section "InputClass"\n	Identifier "keyboard-all"\n	Driver "evdev"\n	MatchIsKeyboard "on"\n	Option "XkbLayout" "fi"\n	Option "XkbModel" "pc105"\nEndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf &&

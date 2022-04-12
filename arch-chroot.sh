@@ -8,10 +8,12 @@ grub-mkconfig -o /boot/grub/grub.cfg &&
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
 echo "arch" >> /etc/hostname &&
-pacman -Sy --noconfirm networkmanager xorg xterm reflector
+pacman -Sy --noconfirm networkmanager xorg xterm reflector pipewire wireblumber pipewire-pulse pipewire-alsa pipewire-jack pavucontrol xfce4 xfce4-goodies lightdm lightdm-gtk-greeter &&
+systemctl enable lightdm &&
 systemctl enable NetworkManager &&
-echo -e 'Section "InputClass"\nIdentifier "keyboard-all"\nDriver "evdev"\nMatchIsKeyboard "on"\nOption "XkbLayout" "fi"\nOption "XkbModel" "pc105"\nEndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf &&
+echo -e 'Section "InputClass"\n	Identifier "keyboard-all"\n	Driver "evdev"\n	MatchIsKeyboard "on"\n	Option "XkbLayout" "fi"\n	Option "XkbModel" "pc105"\nEndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf &&
 echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" >> /etc/xdg/reflector/reflector.conf &&
+echo -e 'Section "InputClass"\n    Identifier "My Mouse"\n    Driver "libinput"\n    MatchIsPointer "yes"\n    Option "AccelProfile" "flat"\n    Option "AccelSpeed" "0"\nEndSection' >> /etc/X11/xorg.conf.d/50-mouse-acceleration.conf &&
 systemctl enable reflector &&
 clear &&
 read -p "username: " uservar &&

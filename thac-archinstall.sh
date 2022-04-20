@@ -14,6 +14,7 @@ sleep 1 &&
 genfstab -U /mnt >> /mnt/etc/fstab &&
 arch-chroot /mnt grub-install $diskvar &&
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg &&
+cp afterinstall.sh /mnt &&
 cp arch-chroot.sh /mnt &&
 cd /mnt &&
 chmod +x arch-chroot.sh &&

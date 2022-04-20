@@ -13,7 +13,7 @@ echo "KEYMAP=fi" >> /etc/vconsole.conf &&
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime &&
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf &&
 echo "arch" >> /etc/hostname &&
-pacman -Sy --noconfirm networkmanager xorg xterm reflector noto-fonts-cjk noto-fonts-emoji noto-fonts gvfs pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack pavucontrol firefox &&
+pacman -Sy --noconfirm networkmanager xorg xterm reflector noto-fonts-cjk noto-fonts-emoji noto-fonts pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack pavucontrol firefox &&
 systemctl enable NetworkManager &&
 echo -e 'Section "InputClass"\n	Identifier "keyboard-all"\n	Driver "evdev"\n	MatchIsKeyboard "on"\n	Option "XkbLayout" "fi"\nEndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf &&
 echo -e "--save /etc/pacman.d/mirrorlist\n--country Finland,Sweden,\n--protocol https\n--latest 5" >> /etc/xdg/reflector/reflector.conf &&
